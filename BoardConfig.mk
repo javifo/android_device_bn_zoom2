@@ -1,5 +1,3 @@
-BUILD_NETD := false
-
 # inherit from the proprietary version
 -include vendor/bn/zoom2/BoardConfigVendor.mk
 
@@ -12,7 +10,7 @@ TARGET_GLOBAL_CFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a8 -mfpu=neon -mfloat-abi=softfp 
 TARGET_BOOTLOADER_BOARD_NAME := zoom2
 TARGET_PROVIDES_INIT_TARGET_RC := true
-TARGET_USERIMAGES_USE_EXT4 := false
+TARGET_USERIMAGES_USE_EXT4 := true
 #OMAP_ENHANCEMENT := true
 
 TARGET_PROVIDES_RELEASETOOLS := true
@@ -28,18 +26,19 @@ BOARD_KERNEL_CMDLINE := console=ttyS0,115200n8 init=/init vram=16M video=omap3ep
 BOARD_KERNEL_BASE := 0x20000000
 BOARD_PAGE_SIZE := 0x00000800
 
-BOARD_BOOTIMAGE_PARTITION_SIZE := 76595K
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 285583K
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 808292K
-BOARD_CACHEIMAGE_PARTITION_SIZE := 237987K
 # 26.8.2012 Do not allow CM build to create boot.img, we'll create it
 #BOARD_BOOTIMAGE_PARTITION_SIZE := 78433280
 BOARD_CUSTOM_BOOTIMG_MK := device/bn/zoom2/custombootimg.mk
 
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 292438016 #292438016 # made multiple of 4096 - old 292436992
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 827691008
+BOARD_CACHEIMAGE_PARTITION_SIZE := 243698688
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext3
 BOARD_FLASH_BLOCK_SIZE := 4096
 
-TARGET_PREBUILT_KERNEL := device/bn/zoom2/prebuilt/boot/kernel
+# 27.8.2012 Do'nt use yaffs for system and data, use ext4 instead
+#INTERNAL_USERIMAGES_USE_EXT := true
+ 
 TARGET_PREBUILT_KERNEL := device/bn/zoom2/prebuilt/boot/kernel_sdcard
 #TARGET_PREBUILT_RECOVERY_KERNEL := device/bn/zoom2/prebuilt/boot/kernel-recovery
 TARGET_RECOVERY_INITRC := device/bn/zoom2/recovery.rc
