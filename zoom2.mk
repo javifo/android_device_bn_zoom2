@@ -119,9 +119,9 @@ PRODUCT_LOCALES += mdpi
 #PRODUCT_COPY_FILES += \
 #    $(LOCAL_PATH)/log_battery_data.sh:/system/bin/log_battery_data.sh
 
-## SD ramdisk packer script - by request - execute manually as-needed
-#PRODUCT_COPY_FILES += \
-#        $(LOCAL_PATH)/sd_ramdisk_packer.sh:sd_ramdisk_packer.sh
+# SD ramdisk packer script - by request - execute manually as-needed
+PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/sd_ramdisk_packer.sh:sd_ramdisk_packer.sh
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
     LOCAL_KERNEL := device/bn/zoom2/prebuilt/boot/kernel_sdcard
