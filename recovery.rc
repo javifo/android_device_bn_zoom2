@@ -1,0 +1,82 @@
+on early-init
+# Give the kernel time to enumerate the internal and external MMC/SD cards
+# before init creates the devices in /dev
+    exec /sbin/sleep 0.5
+    start ueventd
+
+on init
+    export PATH /sbin
+    export ANDROID_ROOT /system
+    export ANDROID_DATA /data
+    export EXTERNAL_STORAGE /sdcard
+    # Set up busybox's shell
+    export ENV /system/etc/profile
+
+    #symlink /system/etc /etc
+
+    mkdir /boot
+    mkdir /rom
+    mkdir /factory
+    mkdir /system
+    mkdir /emmc
+    mkdir /cache
+    mkdir /data
+    
+    mkdir /sdcard
+    mkdir /sd-ext
+    #mkdir /datadata
+     
+    mount /tmp /tmp tmpfs
+    mount vfat /dev/block/mmcblk0p2 /rom sync noatime nodiratime
+
+on boot
+
+    ifup lo
+    hostname localhost
+    domainname localdomain
+
+    class_start default
+
+    write /sys/class/graphics/fb0/pgflip_refresh 1
+    write /sys/class/graphics/fb0/epd_refresh 0
+
+    # Give baseimage and bridged time to start
+    exec /sbin/sleep 1.5
+    start omap-edpd
+     
+    # Give omap-edpd time to start or the first image may not be shown
+    exec /sbin/sleep 1.5
+    
+    #write /sys/class/graphics/fb0/epd_refresh 1
+    start recovery
+
+
+service recovery /sbin/recovery
+    disabled
+    
+service ueventd /sbin/ueventd
+    critical
+    
+service adbd /sbin/adbd recovery
+    oneshot
+
+#on property:persist.service.adb.enable=1
+#    start adbd
+
+#on property:persist.service.adb.enable=0
+#    stop adbd
+
+# load DSP firmware
+service baseimage /sbin/cexec.out -T /etc/dsp/baseimage.dof
+    user root
+    group system
+    oneshot
+
+service bridged /sbin/bridged
+    user root
+    group system
+    oneshot
+
+service omap-edpd /sbin/omap-edpd.elf --timeout=2 -pV220 --fbdev=/dev/graphics/fb0 -s /etc/dsp/subframeip_snode_dsp.dll64P -w /etc/EpdWaveform,/etc/dsp/default_waveform.bin
+    oneshot
+    disabled

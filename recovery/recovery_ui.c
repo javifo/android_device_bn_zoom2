@@ -83,7 +83,7 @@ int device_handle_key(int key_code, int visible) {
 		    __system("/sbin/refresh.sh");
 		    exit(0);
 		}
-
+		
                 return SELECT_ITEM;
             case 139:
 	    case 412:

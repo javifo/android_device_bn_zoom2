@@ -1,7 +1,5 @@
 #!/sbin/sh
 
-# taken from mali1
-
 # Resets the boot counter and the bcb instructions
 #mkdir /rom
 #mount -t vfat -o sync,noatime,nodiratime /dev/block/mmcblk0p2 /rom

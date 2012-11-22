@@ -36,6 +36,8 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext3
 BOARD_FLASH_BLOCK_SIZE := 4096
 
 TARGET_PREBUILT_KERNEL := device/bn/zoom2/prebuilt/boot/kernel
+#TARGET_PREBUILT_RECOVERY_KERNEL := device/bn/zoom2/prebuilt/boot/kernel-recovery
+TARGET_RECOVERY_INITRC := device/bn/zoom2/recovery.rc
 
 BOARD_HAS_LARGE_FILESYSTEM := false
 BOARD_RECOVERY_IGNORE_BOOTABLES := true
