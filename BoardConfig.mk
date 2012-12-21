@@ -37,7 +37,7 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext3
 BOARD_FLASH_BLOCK_SIZE := 4096
 
 # 27.8.2012 Do'nt use yaffs for system and data, use ext4 instead
-#INTERNAL_USERIMAGES_USE_EXT := true
+INTERNAL_USERIMAGES_USE_EXT := true
  
 TARGET_PREBUILT_KERNEL := device/bn/zoom2/prebuilt/boot/kernel_sdcard
 #TARGET_PREBUILT_RECOVERY_KERNEL := device/bn/zoom2/prebuilt/boot/kernel-recovery
