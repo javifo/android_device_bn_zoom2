@@ -117,10 +117,10 @@ adb pull /system/lib/libOMX.TI.G729.decode.so ../../../vendor/bn/zoom2/proprieta
 adb pull /system/lib/libomx_sharedlibrary.so ../../../vendor/bn/zoom2/proprietary/libomx_sharedlibrary.so
 adb pull /system/lib/libOMX.TI.WMA.decode.so ../../../vendor/bn/zoom2/proprietary/libOMX.TI.WMA.decode.so
 adb pull /system/lib/libOMX.TI.ILBC.decode.so ../../../vendor/bn/zoom2/proprietary/libOMX.TI.ILBC.decode.so
-#adb pull /system/lib/libopencore_net_support.so ../../../vendor/bn/zoom2/proprietary/libopencore_net_support.so
-#adb pull /system/lib/libOMX.TI.G726.encode.so ../../../vendor/bn/zoom2/proprietary/libOMX.TI.G726.encode.so
-#adb pull /system/lib/libopencore_mp4local.so ../../../vendor/bn/zoom2/proprietary/libopencore_mp4local.so
-#adb pull /system/lib/libOMX.TI.G711.encode.so ../../../vendor/bn/zoom2/proprietary/libOMX.TI.G711.encode.so
+adb pull /system/lib/libopencore_net_support.so ../../../vendor/bn/zoom2/proprietary/libopencore_net_support.so
+adb pull /system/lib/libOMX.TI.G726.encode.so ../../../vendor/bn/zoom2/proprietary/libOMX.TI.G726.encode.so
+adb pull /system/lib/libopencore_mp4local.so ../../../vendor/bn/zoom2/proprietary/libopencore_mp4local.so
+adb pull /system/lib/libOMX.TI.G711.encode.so ../../../vendor/bn/zoom2/proprietary/libOMX.TI.G711.encode.so
 #adb pull /system/lib/libOMX.TI.AMR.encode.so ../../../vendor/bn/zoom2/proprietary/libOMX.TI.AMR.encode.so
 
 # SGX SDK
@@ -138,7 +138,7 @@ adb pull /system/lib/hw/gralloc.omap3.so ../../../vendor/bn/zoom2/proprietary/gr
 #adb pull /system/lib/libusc.so ../../../vendor/bn/zoom2/proprietary/libusc.so
 
 adb pull /system/lib/libglslcompiler.so ../../../vendor/bn/zoom2/proprietary/libglslcompiler.so
-adb pull /system/lib/libPVRScopeServices.so ../../../vendor/bn/zoom2/proprietary/libPVRScopeServices.so
+#adb pull /system/lib/libPVRScopeServices.so ../../../vendor/bn/zoom2/proprietary/libPVRScopeServices.so
 adb pull /system/lib/libpvrANDROID_WSEGL.so ../../../vendor/bn/zoom2/proprietary/libpvrANDROID_WSEGL.so
 
 #adb pull /system/lib/libpvrPVR2D_FRONTWSEGL.so ../../../vendor/bn/zoom2/proprietary/libpvrPVR2D_FRONTWSEGL.so
@@ -277,8 +277,6 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libGLES_android.so:/system/lib/egl/libGLES_android.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/egl.cfg:/system/lib/egl/egl.cfg \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/pvrsrvinit:/system/bin/pvrsrvinit \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/powervr.ini:/system/etc/powervr.ini \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libOpenVGU.so:/system/lib/libOpenVGU.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libEGL_POWERVR_SGX530_125.so:/system/lib/egl/libEGL_POWERVR_SGX530_125.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libGLESv2_POWERVR_SGX530_125.so:/system/lib/egl/libGLESv2_POWERVR_SGX530_125.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libGLESv1_CM_POWERVR_SGX530_125.so:/system/lib/egl/libGLESv1_CM_POWERVR_SGX530_125.so \\
@@ -286,18 +284,20 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libIMGegl.so:/system/lib/libIMGegl.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/gralloc.omap3.so:/system/lib/hw/gralloc.omap3.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/overlay.omap3.so:/system/lib/hw/overlay.omap3.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libpvrPVR2D_FLIPWSEGL.so:/system/lib/libpvrPVR2D_FLIPWSEGL.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libusc.so:/system/lib/libusc.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libglslcompiler.so:/system/lib/libglslcompiler.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libPVRScopeServices.so:/system/lib/libPVRScopeServices.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libpvrANDROID_WSEGL.so:/system/lib/libpvrANDROID_WSEGL.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libpvrPVR2D_FRONTWSEGL.so:/system/lib/libpvrPVR2D_FRONTWSEGL.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libOpenVG.so:/system/lib/libOpenVG.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libpvr2d.so:/system/lib/libpvr2d.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libsrv_init.so:/system/lib/libsrv_init.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libsrv_init.so:/system/lib/libsrv_init.so
 
 #    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomap_mm_library_jni.so:/system/lib/libomap_mm_library_jni.so \\
 #    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libOMX.TI.AMR.encode.so:/system/lib/libOMX.TI.AMR.encode.so \\
+#    vendor/__MANUFACTURER__/__DEVICE__/proprietary/powervr.ini:/system/etc/powervr.ini \\
+#    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libOpenVGU.so:/system/lib/libOpenVGU.so \\
+#    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libpvrPVR2D_FLIPWSEGL.so:/system/lib/libpvrPVR2D_FLIPWSEGL.so \\
+#    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libPVRScopeServices.so:/system/lib/libPVRScopeServices.so \\
+#    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libpvrPVR2D_FRONTWSEGL.so:/system/lib/libpvrPVR2D_FRONTWSEGL.so \\
+#    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libusc.so:/system/lib/libusc.so \\
+#    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libOpenVG.so:/system/lib/libOpenVG.so \\
 EOF
 
 
