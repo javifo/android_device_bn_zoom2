@@ -22,7 +22,7 @@ TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := ./device/bn/zoom2/releasetools/enco
 
 #Nook Simple Touch orginal one
 #BOARD_KERNEL_CMDLINE := console=ttyS0,115200n8 initrd rw init=/init vram=16M video=omap3epfb:mode=800x600x16x14x270x0,pmic=tps65180-1p2-i2c,vcom=-2030 androidboot.console=ttyS0
-BOARD_KERNEL_CMDLINE := console=ttyS0,115200n8 init=/init vram=16M video=omap3epfb:mode=800x600x16x14x270x0,pmic=tps65180-1p2-i2c,vcom=-2030 androidboot.console=ttyS0
+BOARD_KERNEL_CMDLINE := console=ttyUSB0,115200n8 init=/init vram=16M video=omap3epfb:mode=800x600x16x14x270x0,pmic=tps65180-1p2-i2c,vcom=-2030 androidboot.console=ttyS0
 BOARD_KERNEL_BASE := 0x20000000
 BOARD_PAGE_SIZE := 0x00000800
 
