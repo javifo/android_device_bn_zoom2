@@ -128,6 +128,10 @@ adb pull /system/lib/libIMGegl.so ../../../vendor/bn/zoom2/proprietary/libIMGegl
 adb pull /system/lib/egl/libGLES_android.so ../../../vendor/bn/zoom2/proprietary/libGLES_android.so
 adb pull /system/lib/egl/egl.cfg ../../../vendor/bn/zoom2/proprietary/egl.cfg
 adb pull /system/bin/pvrsrvinit ../../../vendor/bn/zoom2/proprietary/pvrsrvinit
+adb pull /system/bin/sgx/bc_example.ko ../../../vendor/bn/zoom2/proprietary/bc_example.ko
+adb pull /system/bin/sgx/omaplfb.ko ../../../vendor/bn/zoom2/proprietary/omaplfb.ko
+adb pull /system/bin/sgx/pvrsrvkm.ko ../../../vendor/bn/zoom2/proprietary/pvrsrvkm.ko
+adb pull /system/bin/sgx/rc.pvr ../../../vendor/bn/zoom2/proprietary/rc.pvr
 
 #adb pull /system/etc/powervr.ini ../../../vendor/bn/zoom2/proprietary/powervr.ini
 
@@ -287,7 +291,11 @@ PRODUCT_COPY_FILES += \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libglslcompiler.so:/system/lib/libglslcompiler.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libpvrANDROID_WSEGL.so:/system/lib/libpvrANDROID_WSEGL.so \\
     vendor/__MANUFACTURER__/__DEVICE__/proprietary/libpvr2d.so:/system/lib/libpvr2d.so \\
-    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libsrv_init.so:/system/lib/libsrv_init.so
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libsrv_init.so:/system/lib/libsrv_init.so \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/bc_example.ko:/system/bin/sgx/bc_example.ko \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/omaplfb.ko:/system/bin/sgx/omaplfb.ko \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/pvrsrvkm.ko:/system/bin/sgx/pvrsrvkm.ko \\
+    vendor/__MANUFACTURER__/__DEVICE__/proprietary/rc.pvr:/system/bin/sgx/rc.pvr  
 
 #    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libomap_mm_library_jni.so:/system/lib/libomap_mm_library_jni.so \\
 #    vendor/__MANUFACTURER__/__DEVICE__/proprietary/libOMX.TI.AMR.encode.so:/system/lib/libOMX.TI.AMR.encode.so \\
