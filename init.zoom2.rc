@@ -72,7 +72,7 @@ on fs
 #    mount ext2 /dev/block/mmcblk0p5 /system
 #    mount ext2 /dev/block/mmcblk0p5 /system ro remount
     
-    mount ext3 /dev/block/mmcblk0p5 /system wait ro barrier=1
+    mount ext4 /dev/block/mmcblk0p5 /system wait ro barrier=1
     
 #   30.7.2012 - Taken from Stock NST
 #   We chown/chmod /data again so because mount is run as root + defaults
